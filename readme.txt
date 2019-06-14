@@ -1,10 +1,10 @@
 === Plugin Name ===
-Contributors: nathanrice, studiopress
+Contributors: nathanrice, studiopress, cliffpaulick, marksabbath, modernnerd
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=5553118
 Tags: redirect, click tracking, custom post types
 Requires at least: 3.0
 Tested up to: 4.8.3
-Stable tag: 0.9.7
+Stable tag: 0.9.8
 
 Simple URLs is a complete URL management system that allows you create, manage, and track outbound links from your site.
 
@@ -36,7 +36,14 @@ Navigate to `Settings > Permalinks` and save them. No need to change anything, j
 
 = Can I change the URL structure to use something other than /go/ ??? =
 
-No, not without modifying the plugin.
+Yes, by using the filter `simple_urls_slug`.
+
+Usage:
+```
+add_filter( 'simple_urls_slug', function(){
+    return 'redirect-me';
+});
+```
 
 == Screenshots ==
 
@@ -44,6 +51,14 @@ No, not without modifying the plugin.
 2. The URL create/edit screen
 
 == Changelog ==
+
+= 0.9.8 =
+* Coding standards.
+* Added composer.
+* Added Circle CI integration.
+* Added new filter to change the slug.
+* Added REST support to ensure Simple URLs appear in list when linking text.
+* Added cast string to int to avoid type error.
 
 = 0.9.7 =
 * WordPress compatibility.
@@ -74,4 +89,3 @@ No, not without modifying the plugin.
 
 = 0.9 =
 * Initial Beta Release
-
