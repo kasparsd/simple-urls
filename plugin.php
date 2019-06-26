@@ -5,7 +5,7 @@
  * Description: Simple URLs is a complete URL management system that allows you create, manage, and track outbound links from your site by using custom post types and 301 redirects.
  * Author: Nathan Rice
  * Author URI: http://www.nathanrice.net/
- * Version: 0.9.8
+ * Version: 0.9.9
 
  * Text Domain: simple-urls
  * Domain Path: /languages

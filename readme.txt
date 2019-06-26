@@ -3,8 +3,8 @@ Contributors: nathanrice, studiopress, cliffpaulick, marksabbath, modernnerd
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=5553118
 Tags: redirect, click tracking, custom post types
 Requires at least: 3.0
-Tested up to: 4.8.3
-Stable tag: 0.9.8
+Tested up to: 5.2.2
+Stable tag: 0.9.9
 
 Simple URLs is a complete URL management system that allows you create, manage, and track outbound links from your site.
 
@@ -51,6 +51,9 @@ add_filter( 'simple_urls_slug', function(){
 2. The URL create/edit screen
 
 == Changelog ==
+
+= 0.9.9 =
+* Fixed URLs not properly redirecting.
 
 = 0.9.8 =
 * Coding standards.

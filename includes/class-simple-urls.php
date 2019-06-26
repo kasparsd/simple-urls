@@ -18,7 +18,6 @@ class Simple_Urls {
 		add_action( 'plugins_loaded', array( $this, 'load_textdomain' ) );
 		add_action( 'init', array( $this, 'register_post_type' ) );
 		add_action( 'template_redirect', array( $this, 'count_and_redirect' ) );
-		add_filter( 'allowed_redirect_hosts', array( $this, 'add_allowed_redirect_hosts' ), 10 );
 
 	}
 
@@ -138,48 +137,13 @@ class Simple_Urls {
 		do_action( 'simple_urls_redirect', $redirect, $count );
 
 		if ( ! empty( $redirect ) ) {
-			wp_safe_redirect( esc_url_raw( $redirect ), 301 );
+			wp_redirect( esc_url_raw( $redirect ), 301 ); // phpcs:ignore WordPress.Security.SafeRedirect.wp_redirect_wp_redirect -- the redirect URL was added by a user with access to the admin and is filterable. Adding to allowed_redirect_hosts does little to improve security here.
 			exit;
 		} else {
 			wp_safe_redirect( home_url(), 302 );
 			exit;
 		}
 
-	}
-
-	/**
-	 * Add hosts to allowed_redirect_hosts.
-	 *
-	 * @param array $content Allowed hosts.
-	 *
-	 * @return array New allowed hosts.
-	 */
-	public function add_allowed_redirect_hosts( $content ) {
-
-		$query = new WP_Query( array( 'post_type' => 'surl' ) );
-
-		foreach ( $query->posts as $post ) {
-			$meta = get_post_meta( $post->ID, '_surl_redirect' );
-
-			// Getting the host to redirect.
-			if ( isset( $meta[0] ) ) {
-				// Checking if there is '.', which means it would have a full URL not only URN.
-				if ( ! strpos( $meta[0], '.' ) ) {
-					continue;
-				}
-
-				$host = wp_parse_url( $meta[0], PHP_URL_HOST );
-
-				if ( ! $host ) {
-					// If does not include the scheme, explode and get the first part as host.
-					$host = explode( '/', $meta[0] )[0];
-				}
-
-				$content[] = $host;
-			}
-		}
-
-		return $content;
 	}
 
 }
