@@ -3,20 +3,28 @@ Contributors: nathanrice, studiopress, cliffpaulick, marksabbath, modernnerd
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=5553118
 Tags: redirect, click tracking, custom post types
 Requires at least: 3.0
-Tested up to: 5.4
+Tested up to: 5.6
 Stable tag: 0.9.9
 
 Simple URLs is a complete URL management system that allows you create, manage, and track outbound links from your site.
+
+== DEPRECATION NOTICE ==
+
+This plugin is now deprecated and will no longer receive feature updates.
+
+Alternatives:
+
+Check out the wide range of other [link management](https://wordpress.org/plugins/search/link+management/) and [link shortener](https://wordpress.org/plugins/search/link+shortener/) plugins.
 
 == Description ==
 
 Simple URLs is a complete URL management system that allows you create, manage, and track outbound links from your site by using custom post types and 301 redirects.
 
-It adds a new custom post type to your Admin menu, where you can create, edit, delete, and manage URLs. It stores click counts in the form of a custom field on that custom post type, so it scales really well.
+== Usage ==
 
-And by avoiding page based redirects, which is the current trend in masking affiliate links, we avoid any issues with permalink conflicts, and therefore avoid any performance issues.
+Simple URLs adds a new custom post type to your Admin menu, where you can create, edit, delete, and manage URLs. It stores click counts in the form of a custom field on that custom post type, so it scales really well.
 
-== Installation ==
+And, by avoiding page based redirects, which is the current trend in masking affiliate links, we avoid any issues with permalink conflicts, and therefore avoid any performance issues.
 
 1. Upload the entire `simple-urls` folder to the `/wp-content/plugins/` directory
 1. DO NOT change the name of the `simple-urls` folder
